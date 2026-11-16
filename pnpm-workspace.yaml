@@ -1,0 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: true
+
+patchedDependencies:
+  '@vuepress/plugin-slimsearch@2.0.0-rc.130': patches/@vuepress__plugin-slimsearch@2.0.0-rc.130.patch

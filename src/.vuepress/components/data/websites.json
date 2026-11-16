@@ -1,0 +1,20 @@
+[
+  {
+    "name": "VuePress",
+    "url": "https://vuepress.vuejs.org/zh/",
+    "desc": "用 Markdown 构建文档与博客。",
+    "tags": ["开发文档", "博客"]
+  },
+  {
+    "name": "GitHub Pages",
+    "url": "https://docs.github.com/zh/pages",
+    "desc": "托管静态网站与个人博客。",
+    "tags": ["网站工具", "博客"]
+  },
+  {
+    "name": "MDN Web Docs",
+    "url": "https://developer.mozilla.org/zh-CN/",
+    "desc": "HTML、CSS 和 JavaScript 的参考文档。",
+    "tags": ["开发文档", "前端"]
+  }
+]

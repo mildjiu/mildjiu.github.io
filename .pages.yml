@@ -1,0 +1,95 @@
+media:
+  - name: blog-images
+    label: 博客图片
+    input: src/.vuepress/public/images/posts
+    output: /images/posts
+    extensions: [png, jpg, jpeg, webp, gif, avif]
+    rename: random
+
+content:
+  - name: posts
+    label: 文章
+    type: collection
+    path: src/posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{hour}{minute}{second}.md"
+    subfolders: false
+    exclude: [README.md]
+    view:
+      primary: title
+      fields: [title, date, category]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 发布日期
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: 分类
+        type: string
+        list: true
+      - name: tag
+        label: 标签
+        type: string
+        list: true
+      - name: description
+        label: 摘要
+        type: text
+      - name: sticky
+        label: 首页置顶
+        type: boolean
+      - name: body
+        label: 正文
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: blog-images
+
+  - name: site
+    label: 博客设置
+    type: file
+    path: site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: 博客名称
+        type: string
+        required: true
+      - name: name
+        label: 博主昵称
+        type: string
+        required: true
+      - name: tagline
+        label: 首页短句
+        type: string
+      - name: description
+        label: 博主简介
+        type: text
+      - name: avatar
+        label: 头像
+        type: image
+        required: true
+        options:
+          media: blog-images
+      - name: hero
+        label: 首页封面
+        type: image
+        required: true
+        options:
+          media: blog-images
+
+settings:
+  content:
+    merge: true

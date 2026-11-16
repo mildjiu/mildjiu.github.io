@@ -1,0 +1,42 @@
+{
+  "name": "choso-blog",
+  "description": "Personal blog based on VuePress Theme Hope",
+  "version": "1.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src"
+  },
+  "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@types/d3-drag": "3.0.7",
+    "@types/d3-force": "3.0.10",
+    "@types/d3-selection": "3.0.11",
+    "@types/d3-zoom": "3.0.8",
+    "@vuepress/bundler-vite": "2.0.0-rc.30",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.130",
+    "d3-drag": "3.0.0",
+    "d3-force": "3.0.0",
+    "d3-selection": "3.0.0",
+    "d3-zoom": "3.0.0",
+    "jquery": "^4.0.0",
+    "katex": "^0.16.47",
+    "markmap-lib": "^0.18.12",
+    "markmap-toolbar": "^0.18.12",
+    "markmap-view": "^0.18.12",
+    "mermaid": "^11.15.0",
+    "sass-embedded": "^1.100.0",
+    "vue": "^3.5.35",
+    "vuepress": "2.0.0-rc.30",
+    "vuepress-theme-hope": "2.0.0-rc.107"
+  },
+  "packageManager": "pnpm@11.5.2+sha512.71c631e382066efc25625d5cf029075de07b61b37f6e27350fbd84b1bda5864c8c1967adc280776b45c30a715c0359a3be08fef42d5bb09e2b99029979692916",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
+  },
+  "private": true
+}
