@@ -1,5 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import site from "../../site.json";
+import { availableBlogImage } from "./blog-media.js";
 
 export const siteHostname = process.env.BLOG_HOSTNAME || "http://localhost:8080";
 
@@ -7,11 +8,12 @@ const repository = process.env.GITHUB_REPOSITORY as `${string}/${string}` | unde
 const giscusRepoId = process.env.BLOG_GISCUS_REPO_ID;
 const giscusCategoryId = process.env.BLOG_GISCUS_CATEGORY_ID;
 const searchVersion = process.env.GITHUB_SHA?.slice(0, 8) ?? "local";
+const avatar = availableBlogImage(site.avatar);
 
 export default hopeTheme({
   hostname: siteHostname,
   author: { name: site.name, url: "/about.html" },
-  logo: site.avatar,
+  logo: avatar,
   repo: repository,
   repoDisplay: false,
   docsDir: "src",
@@ -51,7 +53,7 @@ export default hopeTheme({
   },
   displayFooter: true,
   blog: {
-    avatar: site.avatar,
+    avatar,
     description: site.description,
     intro: "/about.html",
   },

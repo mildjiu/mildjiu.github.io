@@ -16,7 +16,7 @@ sticky: true
 
 ## 为什么开一个博客
 
-![博客封面的山峦和云海](/images/posts/hero.webp)
+![博客封面的山峦和云海](/images/posts/background.webp)
 
 有些笔记写完就留在文件夹里。把它们整理到一起，方便查找，也方便回头补充。
 
