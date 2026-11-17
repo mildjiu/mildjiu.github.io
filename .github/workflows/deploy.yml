@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check behavior when uploaded images move
+        run: node --test tests/blog-media.test.mjs
+
       - name: Build blog
         run: pnpm docs:build
         env:
@@ -69,3 +72,21 @@ jobs:
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Verify public homepage uses this release
+        env:
+          BLOG_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          expected="<meta name=\"blog-revision\" content=\"$GITHUB_SHA\">"
+          for attempt in {1..10}; do
+            if html=$(curl -fsS --connect-timeout 5 --max-time 10 --get \
+              --data-urlencode "revision=$GITHUB_SHA" \
+              --data-urlencode "check=$attempt" "${BLOG_URL%/}/") &&
+              grep -Fq "$expected" <<< "$html"; then
+              echo "The public homepage is serving $GITHUB_SHA."
+              exit 0
+            fi
+            sleep 8
+          done
+          echo "::error::无法确认公开首页已更新到本次发布，请查看发布记录。"
+          exit 1

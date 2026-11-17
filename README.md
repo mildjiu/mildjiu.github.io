@@ -19,7 +19,9 @@
 
 1. 登录 Pages CMS，打开「文章」，新增一条文章或点开已有文章。
 2. 填标题和日期，按需添加分类、标签、摘要。正文可以直接打字、调整格式，也能在编辑器里插图，或先把文件拖进图片区。
-3. 点保存后，GitHub 会自动生成并发布网站。默认直接更新公开站，发布状态在 GitHub 仓库的 Actions 页面。
+3. 点保存后，GitHub 会自动生成和发布网站，再确认公开首页是否已更新。绿色对勾表示确认成功。可以在 [发布记录](https://github.com/mildjiu/mildjiu.github.io/actions) 查看。
+
+如果希望只在发布出错时收到提醒，先在 GitHub 仓库订阅通知，然后到 [GitHub 通知设置](https://github.com/settings/notifications) 的 System → Actions 选 Email 或 On GitHub，再启用 Only notify for failed workflows。
 
 在「博客设置」可以换站名、昵称、首页短句、简介、头像和封面。删除示例文章可用「文章」列表的删除操作。写公式、图表等 VuePress 扩展语法时，可用编辑器的 Markdown 源码模式。
 

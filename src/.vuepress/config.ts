@@ -1,4 +1,5 @@
 import { defineUserConfig } from "vuepress";
+import type { HeadConfig } from "vuepress/core";
 import { viteBundler } from "@vuepress/bundler-vite";
 import site from "../../site.json";
 import { availableBlogImage, blogMediaPlugin } from "./blog-media.js";
@@ -7,6 +8,13 @@ import knowledgeGraphPlugin from "./knowledge-graph/plugin.js";
 
 const base = (process.env.GITHUB_PAGES_BASE || "/") as `/${string}/` | "/";
 const avatar = availableBlogImage(site.avatar);
+const head: HeadConfig[] = [];
+if (avatar) {
+  head.push(["link", { rel: "icon", href: avatar.startsWith("/") ? base + avatar.slice(1) : avatar }]);
+}
+if (process.env.GITHUB_SHA) {
+  head.push(["meta", { name: "blog-revision", content: process.env.GITHUB_SHA }]);
+}
 
 export default defineUserConfig({
   base,
@@ -14,9 +22,7 @@ export default defineUserConfig({
   title: site.title,
   description: site.description,
   dest: process.env.BLOG_DIST,
-  head: avatar
-    ? [["link", { rel: "icon", href: avatar.startsWith("/") ? base + avatar.slice(1) : avatar }]]
-    : [],
+  head,
   extendsPage(page) {
     if (page.filePathRelative === "README.md") {
       page.frontmatter.heroText = site.title;
